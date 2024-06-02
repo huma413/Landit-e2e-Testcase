@@ -34,7 +34,7 @@ describe('POM', () => {
             login.verifyErrorMessage();
         }
     )
-    it.only('I want to test correct password and incorrect email scenario for login',() =>
+    it('I want to test correct password and incorrect email scenario for login',() =>
         
         {
             cy.visit(LOGIN_PAGE)
