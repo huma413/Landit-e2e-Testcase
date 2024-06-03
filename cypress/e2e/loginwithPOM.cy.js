@@ -41,7 +41,7 @@ describe('POM', () => {
             login.setUserName("huma.tabassum@arbisoftt.com")
             login.setPassword("Security@4581")
             login.clickLogin();
-            login.a
+            login.verifyErrorMessage()
             .should('be.visible')
             .invoke('text')
             .then((text2) => {

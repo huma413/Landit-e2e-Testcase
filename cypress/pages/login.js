@@ -20,14 +20,12 @@ class Login
     {
         cy.get(this.LOGIN_BUTTON).click()
     }
-    //getter function
-     //verifyErrorMessage()
-    //{
-    a = cy.get(ERROR_MESSAGE)
     
-        
-        
-    //}
+     verifyErrorMessage()
+    {
+        return  cy.get(this.ERROR_MESSAGE)
+     
+     }
 }
 export default Login;
 
