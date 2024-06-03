@@ -10,7 +10,7 @@ describe('POM', () => {
         cy.visit(LOGIN_PAGE)
         login.setUserName("huma.tabassum@arbisoft.com")
         login.setPassword("Security@458")
-        login.clickLogin()
+        login.clickLogin();
     }
 )
     it('I want to test incorrect password and incorrect email scenario for login',() =>
@@ -34,7 +34,7 @@ describe('POM', () => {
             login.verifyErrorMessage();
         }
     )
-    it('I want to test correct password and incorrect email scenario for login',() =>
+    it.only('I want to test correct password and incorrect email scenario for login',() =>
         
         {
             cy.visit(LOGIN_PAGE)
