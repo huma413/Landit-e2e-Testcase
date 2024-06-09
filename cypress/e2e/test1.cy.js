@@ -70,7 +70,7 @@ describe('First test', () => {
       cy.log(text2)
     })
   })
-  it.only ('I want to test coach booking flow', () =>
+  it('I want to test coach booking flow', () =>
   {
     login(CORRECT_EMAIL,CORRECT_PASSWORD)
     cy.get(CLICK_COACHING).eq(6).click()
