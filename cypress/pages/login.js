@@ -18,7 +18,7 @@ class Login
     }
     clickLogin()
     {
-         cy.get(this.LOGIN_BUTTON).click();
+         return cy.get(this.LOGIN_BUTTON)
     }
     
      verifyErrorMessage()
