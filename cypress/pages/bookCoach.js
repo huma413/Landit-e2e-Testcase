@@ -3,7 +3,8 @@ class bookCoach
 
     COACHING = '.Text-root.Text-body2.MuiBox-root.MuiBox-root.css-k9cm5y'
     ALL_COACHES = '[data-tab="coaches"]'
-    COACH_NAME = ':nth-child(4) > .css-137ex2q > .css-14biz9c > :nth-child(2) > .Button-root'
+    //COACH_NAME = ':nth-child(4) > .css-137ex2q > .css-14biz9c > :nth-child(2) > .Button-root'
+    COACH_NAME = ':nth-child(3) > .css-137ex2q > .css-14biz9c > :nth-child(2) > .Button-root'
     OBJECTIVES_CONTINUE_BUTTON = '.Button-root.Button-medium.Button-primary.MuiBox-root.css-11cg4rk'
     YES_FOR_RATINGS = '#yes'
     YES_FOR_TEXT_GOALS = '#yes'
@@ -39,9 +40,10 @@ class bookCoach
      
      findAppointmentSlots()
      {
-        cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/208/dates?days_range=3&timezone=Asia%2FKarachi')
+    cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/206/dates?days_range=3&timezone=Asia%2FKarachi')
       .then((response) => 
-        { console.log('API response:', response);
+        { 
+            console.log('API response:', response);
         // Step 2: Ensure the API response is successful (status code 200)
         expect(response.status).to.eq(200);
         const data = response.body.data;
@@ -49,9 +51,9 @@ class bookCoach
         if (firstAvailableSlot) 
             {
                 cy.get(this.YES_FOR_TEXT_GOALS).click()
-                const timeFormatted = firstAvailableSlot.time
+                const firstSlot = firstAvailableSlot.time
                 // Step 8: Find the corresponding slot element on the frontend and click it
-                cy.get(`[datetime="${timeFormatted}"]`).click()
+                cy.get(`[datetime="${firstSlot}"]`).click()
                 //cy.get(`[data-id="${firstAvailableSlot}"]`).click()
             }  
             else 
@@ -63,5 +65,6 @@ class bookCoach
     {
         return cy.get(this.CONFIRM_BOOKING)
     }
+
 }
 export default bookCoach;
