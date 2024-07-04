@@ -1,8 +1,8 @@
 class Login
 {
 
-    EMAIL_FIELD = '#email-input'
-    PASSWORD_FIELD = '#password-input'
+    EMAIL_FIELD = '#email'
+    PASSWORD_FIELD = '#password'
     LOGIN_BUTTON = '.MuiGrid-container > .Button-root'
     ERROR_MESSAGE = '.Text-root > .css-0'
 

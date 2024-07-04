@@ -39,7 +39,7 @@ class bookCoach
      
      findAppointmentSlots()
      {
-        cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/208/dates?days_range=3&timezone=Asia%2FKarachi')
+        cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/206/dates?days_range=3&timezone=Asia%2FKarachi')
       .then((response) => 
         { console.log('API response:', response);
         // Step 2: Ensure the API response is successful (status code 200)
