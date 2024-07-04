@@ -11,6 +11,7 @@ describe('POM', () => {
     { 
       
         cy.visit(LOGIN_PAGE)
+        cy.wait(4000)
         login.setUserName("huma.tabassum@arbisoft.com")
         login.setPassword("Security@458")
         login.clickLogin().click()
