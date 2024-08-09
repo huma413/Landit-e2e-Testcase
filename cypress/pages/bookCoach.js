@@ -9,6 +9,7 @@ class bookCoach
     YES_FOR_RATINGS = '#yes'
     YES_FOR_TEXT_GOALS = '#yes'
     CONFIRM_BOOKING = '[data-testid="confirm-coach-booking"]'
+    SUBMIT = '.MuiGrid-root.MuiGrid-item.css-1wxaqej'
     
 
     clickCoaching()
@@ -40,14 +41,9 @@ class bookCoach
      
      findAppointmentSlots()
      {
-<<<<<<< HEAD
         cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/206/dates?days_range=3&timezone=Asia%2FKarachi')
-=======
-    cy.request('GET', 'https://accept.dev.landit.com/api/v2/coaching/booking/coach/206/dates?days_range=3&timezone=Asia%2FKarachi')
->>>>>>> df2c61151517a867e4f732add973127ea60b2058
       .then((response) => 
-        { 
-            console.log('API response:', response);
+        { console.log('API response:', response);
         // Step 2: Ensure the API response is successful (status code 200)
         expect(response.status).to.eq(200);
         const data = response.body.data;
@@ -55,9 +51,9 @@ class bookCoach
         if (firstAvailableSlot) 
             {
                 cy.get(this.YES_FOR_TEXT_GOALS).click()
-                const firstSlot = firstAvailableSlot.time
+                const timeFormatted = firstAvailableSlot.time
                 // Step 8: Find the corresponding slot element on the frontend and click it
-                cy.get(`[datetime="${firstSlot}"]`).click()
+                cy.get(`[datetime="${timeFormatted}"]`).click()
                 //cy.get(`[data-id="${firstAvailableSlot}"]`).click()
             }  
             else 
@@ -70,5 +66,11 @@ class bookCoach
         return cy.get(this.CONFIRM_BOOKING)
     }
 
+clickSubmit()
+{
+    return cy.get(this.SUBMIT)
 }
+}
+
+
 export default bookCoach;
