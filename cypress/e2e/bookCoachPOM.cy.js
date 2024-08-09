@@ -22,6 +22,7 @@ describe('POM', () => {
         bookCoach.clickYesforRtaings().click()
         bookCoach.findAppointmentSlots()
         bookCoach.confirmbooking().click()
+        bookCoach.clickSubmit().click()
     }
 )})
 
